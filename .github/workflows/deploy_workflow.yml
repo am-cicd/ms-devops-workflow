@@ -148,13 +148,6 @@ jobs:
         -Dapi.layer=${{ inputs.APP_LAYER }} \
         -Dap.generateDefaultPublicUrl=${{ inputs.GENERATE_PUBLIC_URL_FLAG }} \
         -Dap.clusteredFlag=${{ inputs.CLUSTER_ENABLED_FLAG }} \
-        -Dlog.s3.frequency=${{ inputs.MULE_LOG_S3_FREQUENCY_MIN }} \
-        -Dlog.s3.aws.region=${{ inputs.MULE_LOG_S3_AWS_REGION }} \
-        -Dlog.s3.bucket=${{ inputs.MULE_LOG_S3_AWS_BUCKET }} \
-        -Dlog.s3.compress=${{ inputs.MULE_LOG_S3_COMPRESS_FLAG }} \
-        -Dlog.s3.storageClass=${{ inputs.MULE_LOG_S3_STORAGE_CLASS }} \
-        -Dlog.s3.aws.accessKey=${{ secrets.MULE_AWS_S3_ACCESS_KEY }} \
-        -Dlog.s3.aws.secureKey=${{ secrets.MULE_AWS_S3_SECRET_KEY }} \
 
     - name: Deploy for ${{ github.event.ref }} branch - PUBLIC
       if: ${{ inputs.CLOUDHUB_PUBLIC_URL != '' }}
@@ -176,10 +169,3 @@ jobs:
         -Dap.publicUrl=${{ inputs.CLOUDHUB_PUBLIC_URL }} \
         -Dap.generateDefaultPublicUrl=${{ inputs.GENERATE_PUBLIC_URL_FLAG }} \
         -Dap.clusteredFlag=${{ inputs.CLUSTER_ENABLED_FLAG }} \
-        -Dlog.s3.frequency=${{ inputs.MULE_LOG_S3_FREQUENCY_MIN }} \
-        -Dlog.s3.aws.region=${{ inputs.MULE_LOG_S3_AWS_REGION }} \
-        -Dlog.s3.bucket=${{ inputs.MULE_LOG_S3_AWS_BUCKET }} \
-        -Dlog.s3.compress=${{ inputs.MULE_LOG_S3_COMPRESS_FLAG }} \
-        -Dlog.s3.storageClass=${{ inputs.MULE_LOG_S3_STORAGE_CLASS }} \
-        -Dlog.s3.aws.accessKey=${{ secrets.MULE_AWS_S3_ACCESS_KEY }} \
-        -Dlog.s3.aws.secureKey=${{ secrets.MULE_AWS_S3_SECRET_KEY }} \
